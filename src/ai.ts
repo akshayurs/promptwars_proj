@@ -68,7 +68,7 @@ export const generatePlanWithAI = async (schedule: string, budget: number): Prom
        throw new Error("Invalid schema from AI");
     }
     return parsed;
-  } catch (e) {
+  } catch {
     throw new Error("Failed to parse AI response into valid Plan format.");
   }
 };
@@ -114,7 +114,7 @@ export const substituteMeal = async (currentPlan: Plan, mealIndexToReplace: numb
        throw new Error("Invalid schema from AI substitution");
     }
     return parsed;
-  } catch (e) {
+  } catch {
     throw new Error("Failed to parse AI substitution response into valid Plan format.");
   }
 };

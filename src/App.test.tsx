@@ -43,7 +43,7 @@ describe('DayBite App', () => {
 
   test('calls generatePlanWithAI when form is submitted', async () => {
     // Mock the successful AI response
-    (aiModule.generatePlanWithAI as any).mockResolvedValue({
+    (aiModule.generatePlanWithAI as unknown as ReturnType<typeof vi.fn>).mockResolvedValue({
       meals: [
         { type: 'Breakfast', time: '8:00 AM', title: 'Oatmeal', description: 'Quick oats', cost: 3 }
       ],

@@ -14,9 +14,9 @@ export function useMealPlanner() {
     try {
       const result = await generatePlanWithAI(schedule, budget);
       setPlan(result);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err.message || 'Failed to generate plan.');
+      setError(err instanceof Error ? err.message : 'Failed to generate plan.');
     } finally {
       setLoading(false);
     }
@@ -29,9 +29,9 @@ export function useMealPlanner() {
     try {
       const result = await substituteMeal(plan, index, budgetLimit);
       setPlan(result);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setError(err.message || 'Failed to substitute meal.');
+      setError(err instanceof Error ? err.message : 'Failed to substitute meal.');
     } finally {
       setSubstituting(null);
     }
