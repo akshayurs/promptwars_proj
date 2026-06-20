@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+# 🍳 DayBite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Meals that fit your life, not the other way around.
 
-Currently, two official plugins are available:
+**DayBite** is an AI-powered, glassmorphism-styled web application powered by **Gemini 2.5 Flash** that instantly generates personalized, budget-conscious meal plans and grocery lists tailored directly to your chaotic daily schedule, complete with a smart "Make it Cheaper" substitution engine to guarantee you never overspend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Live Demo
+**[Play with DayBite Live on Vercel](https://promptwarsproj.vercel.app)**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## ✨ Features
 
-- Configure the top-level `parserOptions` property like this:
+- **Schedule-Aware Generation:** Input your daily schedule (e.g., "Back-to-back meetings until 7 PM") and receive meal suggestions that actually fit your time constraints.
+- **Budget Feasibility Tracker:** Dynamically calculates total costs. A visual progress meter turns red if your AI-generated meal plan exceeds your designated daily limit.
+- **AI "Make it Cheaper" Engine:** Got a meal that's too expensive? Click "Make it Cheaper" to trigger a targeted AI re-prompt. The system will swap out that specific meal for a budget-friendly alternative while maintaining the rest of your daily plan and updating your total cost.
+- **Automated Grocery Lists:** Instantly generates a consolidated shopping list based on your exact meal plan.
+- **Stunning UI:** Built with a modern, fully-responsive **Glassmorphism** design system, featuring fluid micro-animations, glowing accents, and a deep-space aesthetic.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Tech Stack
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Frontend:** React 18, Vite, TypeScript
+- **Styling:** Vanilla CSS (Glassmorphism UI)
+- **AI Integration:** `@google/genai` (Gemini 2.5 Flash model)
+- **Testing:** Vitest, React Testing Library, Happy DOM
+- **Deployment:** Vercel
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🏆 Hackathon Polish
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+This project has been rigorously audited and optimized for competition:
+- **Strict Typing:** Zero `any` usage. Complete TypeScript interfaces enforce contract stability between the UI and AI data payloads.
+- **Robust Error Handling:** Strict JSON schema parsing and `try/catch` boundaries ensure the app safely catches AI hallucinations without crashing the React tree.
+- **Performance Optimized:** Uses `React.memo` and custom hooks (`useMealPlanner`) to prevent excessive component re-rendering during form inputs.
+- **100% Accessible (A11y):** Fully compliant with semantic HTML, `aria-live` dynamic regions, and `aria-label` tags for screen readers.
+- **Test Coverage:** Core AI parsing logic and UI state transitions are backed by a fully passing Vitest test suite.
+
+## 💻 Local Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/akshayurs/promptwars_proj.git
+   cd promptwars_proj
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add your Google Gemini API key:
+   ```env
+   VITE_GEMINI_API_KEY="your_api_key_here"
+   ```
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Run tests:**
+   ```bash
+   npm run test
+   ```
